@@ -9,4 +9,9 @@ class Positioned {
     this(x + relativeTo.x, y + relativeTo.y);
   }
   void drawDelegate (){}
+  
+  @Override
+  public String toString () {
+    return "("+x+", "+y+")";
+  }
 }

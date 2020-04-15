@@ -1,0 +1,175 @@
+{
+    "entities": [
+        {
+            "name": "Opera",
+            "px": 200,
+            "py": 100,
+            "attributes": [
+                {
+                    "name": "pk_Opera",
+                    "relativeToPosition": "-w/2, h/2+15",
+                    "linearLink": "x",
+                    "primary": true,
+                },
+                {
+                    "name": "titolo",
+                    "labelPosition": "<",
+                    "linearLink": "-",
+                    "relativeToPosition": "v"
+                },
+                {
+                    "name": "autLibretto",
+                    "labelPosition": "<",
+                    "relativeToPosition": "v",
+                    "linearLink": "-",
+                    "padding": 55
+                },
+                {
+                    "name": "autMusica",
+                    "labelPosition": "v",
+                    "relativeToPosition": "v",
+                    "linearLink": "-",
+                    "padding": 60
+                },
+                {
+                    "name": "anno",
+                    "labelPosition": ">",
+                    "relativeToPosition": "v",
+                    "linearLink": "-",
+                    "padding": 55
+                },
+                {
+                    "name": "luogo",
+                    "labelPosition": ">",
+                    "relativeToPosition": "v",
+                    "linearLink": "-",
+                }
+            ]
+        },
+        {
+            "name": "Spettacolo",
+            "px": -200,
+            "py": "H/2",
+            "relativeTo": "TR",
+            "attributes": [
+                {
+                    "name": "codSpettacolo",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                    "primary": true
+                },
+                {
+                    "name": "regista",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<"
+                },
+                {
+                    "name": "orchestra",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                },
+                {
+                    "name": "direttore",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                }
+            ]
+        },
+        {
+            "name": "Interprete",
+            "px": 200,
+            "py": -100,
+            "relativeTo": "BL",
+            "attributes": [
+                {
+                    "name": "C.F.",
+                    "labelPosition": "<",
+                    "relativeToPosition": "^",
+                    "primary": true
+                },
+                {
+                    "name": "nome",
+                    "labelPosition": "^",
+                    "relativeToPosition": "^",
+                    "padding": 40
+                },
+                {
+                    "name": "voce",
+                    "labelPosition": ">",
+                    "relativeToPosition": "^",
+                },
+            ]
+        }
+    ],
+    "associations": [
+        {
+            "name": "rappresenta",
+            "px": "W/2",
+            "py": 100,
+            "attributes": [
+                {
+                    "name": "data",
+                    "labelPosition": "v",
+                    "relativeToPosition": "v"
+                },
+            ],
+            "entities": [
+                {
+                    "entity": "Opera",
+                    "min": "0",
+                    "max": "N",
+                    "position": "<"
+                },
+                {
+                    "entity": "Spettacolo",
+                    "min": "1",
+                    "max": "N",
+                    "position": ">"
+                }
+            ]
+        },
+        {
+            "name": "interpreta",
+            "px": "W/2",
+            "py": -100,
+            "relativeTo": "BL",
+            "attributes": [
+                {
+                    "name": "personaggio",
+                    "labelPosition": "^",
+                    "relativeToPosition": "^"
+                },
+            ],
+            "entities": [
+                {
+                    "entity": "Interprete",
+                    "min": "0",
+                    "max": "N",
+                    "position": "<"
+                },
+                {
+                    "entity": "Spettacolo",
+                    "min": "1",
+                    "max": "N",
+                    "position": ">"
+                }
+            ]
+        }
+    ],
+    "placeHolders": [
+        {
+            "name": "placeholder0",
+            "px": "w/2",
+            "py": "h/2+15",
+            "relativeTo": "Opera"
+        }
+    ],
+    "links": [
+        {
+            "from": "pk_Opera",
+            "to": "placeholder0",
+            "defaultDirection": "-"
+        }
+    ]
+} 
+ 

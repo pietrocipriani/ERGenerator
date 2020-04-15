@@ -18,6 +18,7 @@ final ArrayList<Link> links = new ArrayList();
 
 void setup () {
   size(1000, 600);
+  
   frameRate(30);
   strokeWeight(2);
   textSize(15);
@@ -54,10 +55,6 @@ void keyPressed () {
   } else if (key == 'r') {
     links.clear();
     positions.clear();
-    positions.put("TL", TL);
-    positions.put("TR", TR);
-    positions.put("BL", BL);
-    positions.put("BR", BR);
     parse();
   }
 }

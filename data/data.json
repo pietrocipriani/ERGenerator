@@ -1,88 +1,79 @@
 {
+    "width": 1000,
+    "height": 400,
+    "translationX": 0,
+    "translationY": 0,
     "entities": [
         {
-            "name": "Opera",
+            "name": "Stand",
             "px": 200,
             "py": 100,
             "attributes": [
                 {
-                    "name": "pk_Opera",
-                    "relativeToPosition": "-w/2, h/2+15",
-                    "linearLink": "x",
+                    "name": "numero",
+                    "relativeToPosition": "<",
+                    "labelPosition": "<",
                     "primary": true,
                 },
                 {
-                    "name": "titolo",
+                    "name": "zona",
+                    "relativeToPosition": "<",
                     "labelPosition": "<",
-                    "linearLink": "-",
-                    "relativeToPosition": "v"
                 },
                 {
-                    "name": "autLibretto",
+                    "name": "superficie",
+                    "relativeToPosition": "<",
                     "labelPosition": "<",
-                    "relativeToPosition": "v",
-                    "linearLink": "-",
-                    "padding": 55
                 },
                 {
-                    "name": "autMusica",
-                    "labelPosition": "v",
-                    "relativeToPosition": "v",
-                    "linearLink": "-",
-                    "padding": 60
-                },
-                {
-                    "name": "anno",
-                    "labelPosition": ">",
-                    "relativeToPosition": "v",
-                    "linearLink": "-",
-                    "padding": 55
-                },
-                {
-                    "name": "luogo",
-                    "labelPosition": ">",
-                    "relativeToPosition": "v",
-                    "linearLink": "-",
+                    "name": "espositore",
+                    "relativeToPosition": "<",
+                    "labelPosition": "<",
                 }
             ]
         },
         {
-            "name": "Spettacolo",
+            "name": "Oggetto",
             "px": -200,
-            "py": "H/2",
+            "py": 100,
             "relativeTo": "TR",
             "attributes": [
                 {
-                    "name": "codSpettacolo",
-                    "labelPosition": "<",
-                    "relativeToPosition": "<",
+                    "name": "codice",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
                     "primary": true
                 },
                 {
-                    "name": "regista",
-                    "labelPosition": "<",
-                    "relativeToPosition": "<"
+                    "name": "tipo",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
                 },
                 {
-                    "name": "orchestra",
-                    "labelPosition": "<",
-                    "relativeToPosition": "<",
+                    "name": "materiali",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
                 },
                 {
-                    "name": "direttore",
-                    "labelPosition": "<",
-                    "relativeToPosition": "<",
-                }
+                    "name": "epoca",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
+                },
+                {
+                    "name": "prezzo",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
+                },
             ]
         },
         {
-            "name": "Interprete",
-            "px": 200,
+            "name": "Visitatore",
+            "px": "W/2",
             "py": -100,
             "relativeTo": "BL",
             "attributes": [
                 {
-                    "name": "C.F.",
+                    "name": "codiceVisitatore",
                     "labelPosition": "<",
                     "relativeToPosition": "^",
                     "primary": true
@@ -94,7 +85,7 @@
                     "padding": 40
                 },
                 {
-                    "name": "voce",
+                    "name": "età",
                     "labelPosition": ">",
                     "relativeToPosition": "^",
                 },
@@ -103,73 +94,75 @@
     ],
     "associations": [
         {
-            "name": "rappresenta",
-            "px": "W/2",
-            "py": 100,
+            "name": "visita",
+            "px": 200,
+            "py": -100,
+            "relativeTo": "BL",
             "attributes": [
                 {
                     "name": "data",
-                    "labelPosition": "v",
-                    "relativeToPosition": "v"
+                    "labelPosition": "<",
+                    "relativeToPosition": "<"
                 },
             ],
             "entities": [
                 {
-                    "entity": "Opera",
+                    "entity": "Stand",
                     "min": "0",
                     "max": "N",
-                    "position": "<"
+                    "position": "^"
                 },
                 {
-                    "entity": "Spettacolo",
-                    "min": "1",
+                    "entity": "Visitatore",
+                    "min": "0",
                     "max": "N",
                     "position": ">"
                 }
             ]
         },
         {
-            "name": "interpreta",
+            "name": "espone",
             "px": "W/2",
-            "py": -100,
-            "relativeTo": "BL",
-            "attributes": [
-                {
-                    "name": "personaggio",
-                    "labelPosition": "^",
-                    "relativeToPosition": "^"
-                },
-            ],
+            "py": 100,
+            "attributes": [],
             "entities": [
                 {
-                    "entity": "Interprete",
+                    "entity": "Stand",
+                    "min": "1",
+                    "max": "N",
+                    "position": "<"
+                },
+                {
+                    "entity": "Oggetto",
+                    "min": "1",
+                    "max": "1",
+                    "position": ">"
+                }
+            ]
+        },
+        {
+            "name": "acquista",
+            "px": -200,
+            "py": -100,
+            "relativeTo": "BR",
+            "attributes": [],
+            "entities": [
+                {
+                    "entity": "Oggetto",
                     "min": "0",
                     "max": "N",
                     "position": "<"
                 },
                 {
-                    "entity": "Spettacolo",
-                    "min": "1",
-                    "max": "N",
-                    "position": ">"
+                    "entity": "Visitatore",
+                    "min": "0",
+                    "max": "1",
+                    "position": "^"
                 }
             ]
-        }
+        },
     ],
-    "placeHolders": [
-        {
-            "name": "placeholder0",
-            "px": "w/2",
-            "py": "h/2+15",
-            "relativeTo": "Opera"
-        }
-    ],
-    "links": [
-        {
-            "from": "pk_Opera",
-            "to": "placeholder0",
-            "defaultDirection": "-"
-        }
-    ]
+    "placeHolders": [],
+    "links": []
 } 
  

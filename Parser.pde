@@ -2,6 +2,21 @@
 
 void parse () {
   JSONObject json = loadJSONObject("data.json");
+  TL = new Positioned (
+    json.isNull("translationX") ? 0 : json.getFloat("translationX"),
+    json.isNull("translationY") ? 0 : json.getFloat("translationY")
+  );
+  BR = new Positioned(
+    (json.isNull("width") ? 1000 : json.getFloat("width"))+TL.x,
+    (json.isNull("height") ? 600 : json.getFloat("height"))+TL.y
+  );
+  TR = new Positioned(BR.x, TL.y);
+  BL = new Positioned(TL.x, BR.y);
+  positions.put("TL", TL);
+    positions.put("TR", TR);
+    positions.put("BL", BL);
+    positions.put("BR", BR);
+  surface.setSize((int) (BR.x-TL.x), (int) (BR.y-TL.y));
   parseEntities (json.getJSONArray("entities"));
   parseAssociations (json.getJSONArray("associations"));
   parsePlaceHolder (json.getJSONArray("placeHolders"));
