@@ -1,0 +1,162 @@
+{
+    "entities": [
+        {
+            "name": "Supermercato",
+            "px": 200,
+            "py": 100,
+            "attributes": [
+                {
+                    "name": "località",
+                    "labelPosition": "^",
+                    "relativeToPosition": "-w/4, -h/2-30",
+                    "linearLink": "-"
+                },
+                {
+                    "name": "indirizzo",
+                    "labelPosition": "^",
+                    "relativeToPosition": "w/4, -h/2-30",
+                    "linearLink": "-"
+                },
+                {
+                    "name": "dipendenti",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
+                },
+                {
+                    "name": "responsabile",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
+                },
+                {
+                    "name": "pk_Supermercato",
+                    "relativeToPosition": "-w/3, -h/2-15",
+                    "primary": true,
+                    "linearLink": "x"
+                }
+            ]
+        },
+        {
+            "name": "Prodotto",
+            "px": "W/2",
+            "py": -100,
+            "relativeTo": "BL",
+            "attributes": [
+                {
+                    "name": "codProdotto",
+                    "labelPosition": "<",
+                    "relativeToPosition": "^",
+                    "primary": true
+                },
+                {
+                    "name": "descrizione",
+                    "labelPosition": "<",
+                    "relativeToPosition": "^",
+                    "padding": 60
+                },
+                {
+                    "name": "prezzo",
+                    "labelPosition": ">",
+                    "relativeToPosition": "^",
+                    "padding": 60
+                },
+                {
+                    "name": "casaProduttrice",
+                    "labelPosition": ">",
+                    "relativeToPosition": "^"
+                }
+            ]
+        },
+        {
+            "name": "Fornitore",
+            "px": -200,
+            "py": 100,
+            "relativeTo": "TR",
+            "attributes": [
+                {
+                    "name": "codFiscale",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                    "primary": true
+                },
+                {
+                    "name": "nome",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<"
+                },
+                {
+                    "name": "sede",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<"
+                },
+            ]
+        },
+    ],
+    "associations": [
+        {
+            "name": "ordina",
+            "px": 200,
+            "py": "H/2",
+            "attributes": [
+                {
+                    "name": "quantità",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
+                },
+                {
+                    "name": "dataAcquisto",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
+                }
+            ],
+            "entities": [
+                {
+                    "entity": "Supermercato",
+                    "min": "0",
+                    "max": "N",
+                    "position": "^"
+                },
+                {
+                    "entity": "Prodotto",
+                    "min": "0",
+                    "max": "N",
+                    "position": "v"
+                }
+            ]
+        },
+        {
+            "name": "fornisce",
+            "px": -200,
+            "py": "H/2",
+            "relativeTo": "TR",
+            "entities": [
+                {
+                    "entity": "Fornitore",
+                    "min": "1",
+                    "max": "N",
+                    "position": "^"
+                },
+                {
+                    "entity": "Prodotto",
+                    "min": "1",
+                    "max": "1",
+                    "position": "v"
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "from": "pk_Supermercato",
+            "to": "ph0"
+        }
+    ],
+    "placeHolders": [
+        {
+            "name": "ph0",
+            "px": "w/3",
+            "py": "-h/2-15",
+            "relativeTo": "Supermercato"
+        }
+    ]
+} 
+ 

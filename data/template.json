@@ -1,0 +1,60 @@
+{
+    "entities": [
+        {
+            "name": "name",
+            "px": 0,
+            "py": 0,
+            "relativeTo": "TL",
+            "attributes": [
+                {
+                    "name": "name",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                    "padding": 30,
+                    "primary": false,
+                    "linearLink": null,
+                }
+            ]
+        }
+    ],
+    "associations": [
+        {
+            "name": "name",
+            "px": 0,
+            "py": 0,
+            "relativeTo": "TL",
+            "attributes": [
+                {
+                    "name": "name",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                    "padding": 30,
+                    "linearLink": null
+                }
+            ],
+            "entities": [
+                {
+                    "entity": "name",
+                    "min": "0",
+                    "max": "N",
+                    "position": "<"
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "from": "name",
+            "to": "name",
+            "defaultDirection": "|"
+        }
+    ],
+    "placeHolders": [
+        {
+            "name": "name",
+            "px": 0,
+            "py": 0,
+            "relativeTo": "TL"
+        }
+    ]
+} 

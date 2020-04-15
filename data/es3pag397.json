@@ -1,0 +1,96 @@
+{
+    "entities": [
+        {
+            "name": "Partita",
+            "px": 200,
+            "py": "H/2",
+            "attributes": [
+                {
+                    "name": "data",
+                    "labelPosition": ">",
+                    "relativeToPosition": "^",
+                },
+                {
+                    "name": "casa",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                    "linearLink": "|"
+                },
+                {
+                    "name": "ospite",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                    "linearLink": "|"
+                },
+                {
+                    "name": "pk_Partita",
+                    "relativeToPosition": "-w/2-15, -h/2",
+                    "primary": true,
+                    "linearLink": "x"
+                }
+            ]
+        },
+        {
+            "name": "Giocatore",
+            "px": -200,
+            "py": "H/2",
+            "relativeTo": "TR",
+            "attributes": [
+                {
+                    "name": "numero",
+                    "labelPosition": "<",
+                    "relativeToPosition": "^",
+                    "primary": true
+                },
+                {
+                    "name": "presidente",
+                    "labelPosition": ">",
+                    "relativeToPosition": "^"
+                }
+            ]
+        },
+    ],
+    "associations": [
+        {
+            "name": "gioca",
+            "px": "W/2",
+            "py": "H/2",
+            "attributes": [
+                {
+                    "name": "goal",
+                    "labelPosition": "^",
+                    "relativeToPosition": "^"
+                }
+            ],
+            "entities": [
+                {
+                    "entity": "Partita",
+                    "min": "22",
+                    "max": "28",
+                    "position": "<"
+                },
+                {
+                    "entity": "Giocatore",
+                    "min": "0",
+                    "max": "N",
+                    "position": ">"
+                }
+            ]
+        }
+    ],
+    "placeHolders": [
+        {
+            "name": "placeHolder0",
+            "px": "-w/2-15",
+            "py": "h/2",
+            "relativeTo": "Partita"
+        }
+    ],
+    "links": [
+        {
+            "from": "pk_Partita",
+            "to": "placeHolder0"
+        }
+    ]
+} 
+ 

@@ -1,0 +1,208 @@
+{
+    "entities": [
+        {
+            "name": "Reparto",
+            "px": 200,
+            "py": 100,
+            "attributes": [
+                {
+                    "name": "nomeReparto",
+                    "labelPosition": "^",
+                    "relativeToPosition": "<",
+                    "primary": true
+                },
+                {
+                    "name": "specialità",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                },
+                {
+                    "name": "posti letto",
+                    "labelPosition": "<",
+                    "relativeToPosition": "<",
+                }
+            ]
+        },
+        {
+            "name": "Paziente",
+            "px": -200,
+            "py": 100,
+            "relativeTo": "TR",
+            "attributes": [
+                {
+                    "name": "codicePaziente",
+                    "labelPosition": "<",
+                    "relativeToPosition": ">",
+                    "primary": true
+                },
+                {
+                    "name": "C.F.",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
+                },
+                {
+                    "name": "dataArrivo",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
+                },
+                {
+                    "name": "dataUscita",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
+                },
+                {
+                    "name": "diagnosi",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
+                },
+                {
+                    "name": "tariffa",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">",
+                },
+                {
+                    "name": "nomePaziente",
+                    "labelPosition": "v",
+                    "relativeToPosition": ">",
+                },
+            ]
+        },
+        {
+            "name": "Dottore",
+            "px": "W/2",
+            "py": "H/2",
+            "attributes": [
+                {
+                    "name": "C.F",
+                    "labelPosition": "<",
+                    "relativeToPosition": "v",
+                    "primary": true
+                },
+                {
+                    "name": "nomeDottore",
+                    "labelPosition": ">",
+                    "relativeToPosition": "v",
+                },
+            ]
+        },
+        {
+            "name": "Esame",
+            "px": -200,
+            "py": -100,
+            "relativeTo": "BR",
+            "attributes": [
+                {
+                    "name": "nomeEsame",
+                    "labelPosition": "v",
+                    "relativeToPosition": "v",
+                    "primary": true
+                }
+            ]
+        },
+    ],
+    "associations": [
+        {
+            "name": "curato",
+            "px": "W/2",
+            "py": 100,
+            "attributes": [],
+            "entities": [
+                {
+                    "entity": "Reparto",
+                    "min": "0",
+                    "max": "N",
+                    "position": "<"
+                },
+                {
+                    "entity": "Paziente",
+                    "min": "1",
+                    "max": "1",
+                    "position": ">"
+                },
+                {
+                    "entity": "Dottore",
+                    "min": "0",
+                    "max": "N",
+                    "position": "v"
+                }
+            ]
+        },
+        {
+            "name": "primario",
+            "px": "200+w/3",
+            "py": "H/2",
+            "attributes": [],
+            "entities": [
+                {
+                    "entity": "Reparto",
+                    "min": "1",
+                    "max": "1",
+                    "position": "^"
+                },
+                {
+                    "entity": "Dottore",
+                    "min": "0",
+                    "max": "1",
+                    "position": ">"
+                }
+            ]
+        },
+        {
+            "name": "specializzato",
+            "px": "200-w/3",
+            "py": -100,
+            "relativeTo": "BL", 
+            "attributes": [],
+            "entities": [
+                {
+                    "entity": "Reparto",
+                    "min": "0",
+                    "max": "N",
+                    "position": "^"
+                },
+                {
+                    "entity": "Dottore",
+                    "min": "1",
+                    "max": "N",
+                    "position": ">"
+                }
+            ]
+        },
+        {
+            "name": "prescrive",
+            "px": -200,
+            "py": "H/2",
+            "relativeTo": "TR",
+            "attributes": [
+                {
+                    "name": "risultato",
+                    "labelPosition": ">",
+                    "relativeToPosition": ">"
+                }
+            ],
+            "entities": [
+                {
+                    "entity": "Dottore",
+                    "min": "0",
+                    "max": "N",
+                    "position": "<"
+                },
+                {
+                    "entity": "Paziente",
+                    "min": "0",
+                    "max": "N",
+                    "position": "^"
+                },
+                {
+                    "entity": "Esame",
+                    "min": "0",
+                    "max": "N",
+                    "position": "v"
+                },
+            ]
+        }
+    ],
+    "placeHolders": [],
+    "links": []
+} 
+ 

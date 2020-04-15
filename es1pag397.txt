@@ -1,0 +1,56 @@
+final static Entity[] entities = new Entity[]{
+  new Entity("Supermercato", 200, 100, TL),
+  new Entity("Prodotto", 500, -100, BL),
+  new Entity("Fornitore", -200, 100, TR)
+};
+final static Association[] associations = new Association[]{
+  new Association("ordina", 200, -300, BL),
+  new Association("fornisce", -200, -300, BR)  
+};
+final static Dot[] attributes = new Dot[]{
+  // entities[0] -> 0
+  new Attribute("località", TOP, -kWIDTH/4, -kHEIGHT/2-30, entities[0]),
+  new Attribute("indirizzo", TOP, kWIDTH/4, -kHEIGHT/2-30, entities[0]),
+  new Dot(-kWIDTH/3, -kHEIGHT/2-15, true, entities[0]),
+  new Attribute("dipendenti", RIGHT, kWIDTH/2+30, -kHEIGHT/3, entities[0]),
+  new Attribute("responsabile", RIGHT, kWIDTH/2+30, kHEIGHT/3, entities[0]),
+  // entities[1] -> 5
+  new Attribute("codProdotto", -kWIDTH*3/10, -kHEIGHT/2-30, true, entities[1]),
+  new Attribute("descrizione", -kWIDTH*1/10, -kHEIGHT/2-60, entities[1]),
+  new Attribute("prezzo", RIGHT, kWIDTH*1/10, -kHEIGHT/2-60, entities[1]),
+  new Attribute("casaProduttrice", RIGHT, kWIDTH*3/10, -kHEIGHT/2-30, entities[1]),
+  // entities[2] -> 9
+  new Attribute("codFiscale", -kWIDTH/2-30, -kHEIGHT/2, entities[2]),
+  new Attribute("nome", -kWIDTH/2-30, 0, entities[2]),
+  new Attribute("sede", -kWIDTH/2-30, kHEIGHT/2, entities[2]),
+  // attribute[0] -> 12
+  new Attribute("quantità", RIGHT, kWIDTH/2+30, -kHEIGHT/3, associations[0]),
+  new Attribute("dataAcquisto", RIGHT, kWIDTH/2+30, kHEIGHT/3, associations[0])
+};
+final static Link[] links = new Link[]{
+  new Link (entities[0], associations[0]),
+  new Link (associations[0], entities[1]),
+  new Link (entities[1], associations[1], Direction.HORIZONTAL),
+  new Link (associations[1], entities[2]),
+  new Link (entities[0], attributes[0], Direction.HORIZONTAL),
+  new Link (entities[0], attributes[1], Direction.HORIZONTAL),
+  new Link (attributes[2], new Positioned(kWIDTH/3, -kHEIGHT/2-15, entities[0])),
+  new Link (entities[0], attributes[3], true),
+  new Link (entities[0], attributes[4], true),
+  new Link (entities[1], attributes[5], true),
+  new Link (entities[1], attributes[6], true),
+  new Link (entities[1], attributes[7], true),
+  new Link (entities[1], attributes[8], true),
+  new Link (entities[2], attributes[9], true),
+  new Link (entities[2], attributes[10], true),
+  new Link (entities[2], attributes[11], true),
+  new Link (associations[0], attributes[12], true),
+  new Link (associations[0], attributes[13], true),
+};
+
+final static Cardinality[] cardinalities = new Cardinality[]{
+  new Cardinality ("0, N", TOP, associations[0]),
+  new Cardinality ("0, N", BOTTOM, associations[0]),
+  new Cardinality ("1, 1", BOTTOM, associations[1]),
+  new Cardinality ("1, N", TOP, associations[1])
+};
